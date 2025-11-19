@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Задача №1</title>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      function Trip({ passangerSeats, waterPerPerson, eatPerPerson }) {
+        const [passangerNum, setPassangerNum] = React.useState(0);
+        const bus = Math.ceil(passangerNum / Number(passangerSeats));
+        const water = passangerNum * Number(waterPerPerson);
+        const eat = passangerNum * Number(eatPerPerson);
+
+        return (
+          <div>
+            <div>
+              <label>
+                Введіть кількість пасажирів для поїздки
+                <input
+                  type="number"
+                  value={passangerNum}
+                  onChange={(e) => setPassangerNum(Number(e.target.value))}
+                />
+              </label>
+            </div>
+            <div>
+              <h2>Для поїздки треба:</h2>
+              {`Автобусів: ${bus}`}
+              <br />
+              {`Води: ${water}`}
+              <br />
+              {`Бутербродів: ${eat}`}
+              <br />
+            </div>
+          </div>
+        );
+      }
+      function App() {
+        return (
+          <div>
+            <Trip passangerSeats="20" waterPerPerson="2" eatPerPerson="3" />
+          </div>
+        );
+      }
+
+      window.onload = function () {
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
