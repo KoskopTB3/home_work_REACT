@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Задача №1</title>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      function GetRandomNum({ minValue, maxValue }) {
+        const [history, setHistory] = React.useState(() => []);
+
+        function getRandomNum(minNum, maxNum) {
+          return minNum + Math.floor(Math.random() * (maxNum - minNum + 1));
+        }
+
+        function addHistory() {
+          setHistory((prevArr) => [...prevArr, getRandomNum(minValue, maxValue)]);
+        }
+
+        return (
+          <div>
+            <button onClick={addHistory}>Згенерувати значення</button>
+            <h2>Історія:</h2>
+            <div>{history.join(", ")}</div>
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <div>
+            <GetRandomNum minValue={1} maxValue={100} />
+          </div>
+        );
+      }
+
+      window.onload = function () {
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
