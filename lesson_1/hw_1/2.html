@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Задача №2</title>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      function GetSeason({ seasons }) {
+        const [month, setMonth] = React.useState("");
+        const [seasonData, setSeasonData] = React.useState();
+        //   const [cloth, setCloth] = React.useState();
+
+        const checkSeason = () => {
+          let index;
+          console.log(month);
+          switch (month) {
+            case "12":
+            case "1":
+            case "2":
+              index = 0;
+              break;
+            case "3":
+            case "4":
+            case "5":
+              index = 1;
+              break;
+            case "6":
+            case "7":
+            case "8":
+              index = 2;
+              break;
+            case "9":
+            case "10":
+            case "11":
+              index = 3;
+              break;
+
+            default:
+              alert("Не вірно введений номер місяця");
+              break;
+          }
+          setSeasonData(seasons[index]);
+        };
+
+        return (
+          <div>
+            <div>
+              <label>
+                Введіть номер місяця для визначення сезону
+                <input
+                  type="number"
+                  value={month}
+                  onChange={(e) => setMonth(e.target.value)}
+                />
+              </label>
+            </div>
+            <div>
+              <button onClick={checkSeason}>Перевірити сезон</button>
+            </div>
+            {seasonData && (
+              <div>
+                {/*<h2>{`Сезон: ${seasonData.season}\nОдяг: ${seasonData.cloth}`}</h2>*/}
+                <h2>
+                  Сезон: {seasonData.season}
+                  <br />
+                  Одяг: {seasonData.cloth}
+                  <br />
+                </h2>
+                {seasonData.imgSrc && (
+                  <img src={seasonData.imgSrc} style={{ width: "300px" }} />
+                )}
+              </div>
+            )}
+          </div>
+        );
+      }
+
+      function App() {
+        const seasons = [
+          {
+            season: "winter",
+            cloth: "Пуховик",
+            imgSrc: "../img/winter.jpg",
+          },
+          {
+            season: "spring",
+            cloth: "Демісезонна куртка",
+            imgSrc: "../img/spring.jpg",
+          },
+          {
+            season: "summer",
+            cloth: "Футболка",
+            imgSrc: "../img/summer.jpg",
+          },
+          {
+            season: "autumn",
+            cloth: "Демісезонна куртка",
+            imgSrc: "../img/autumn.webp",
+          },
+        ];
+        return (
+          <div>
+            <GetSeason seasons={seasons} />
+          </div>
+        );
+      }
+
+      window.onload = function () {
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

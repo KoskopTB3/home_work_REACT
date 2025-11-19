@@ -1,0 +1,47 @@
+@import "null.css";
+
+
+
+body{
+	background-color: rgb(65, 138, 134);
+	/* color: rgb(247, 245, 139); */
+	padding: 50px;
+}
+
+a{
+	font-size: 25px;
+	color: blue;
+}
+a:hover{
+	text-decoration: underline;
+}
+.task{
+	margin-bottom: 20px;
+	border: 2px solid black;
+	padding: 20px;
+	background-color: rgb(87, 124, 141);
+	line-height: 27px;
+}
+h2{
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+table{
+	border: 1px solid black;
+}
+
+tr{
+	border: 1px solid black;
+}
+
+th{
+	border: 1px solid black;
+}
+
+.taskas_additionally{
+	font-size: 25px;
+	text-transform: uppercase;
+	color: black;
+	font-weight: 900;
+}

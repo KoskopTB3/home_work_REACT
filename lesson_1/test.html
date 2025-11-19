@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Підключаємо React -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <!-- Підключаємо ReactDOM -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!-- Babel для підтримки JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      function NumbersGenerator({ min, max }) {
+        const [num, setNum] = React.useState(null);
+        const [history, setHistory] = React.useState([]);
+
+        const generateNum = () => {
+          let randomNum = min + Math.floor(Math.random() * (max - min + 1));
+          setNum(randomNum);
+          setHistory((prevHistory) => [...prevHistory, num]);
+        };
+
+        return (
+          <div>
+            <h1>Генератор чисел від 1 до 10</h1>
+            <button onClick={generateNum}>згенерувати число</button>
+            {num !== null && <h2>{`Згенероване число: ${num}`}</h2>}
+            <h3>Історія:</h3>
+            <ul style={{ listStyle: "none", padding: 0 }}>
+              {history.map((item, index) => (
+                <li key={index}> {item}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <div style={{ textAlign: "center", marginTop: "50px" }}>
+            <NumbersGenerator min={1} max={10} />
+          </div>
+        );
+      }
+      window.onload = function () {
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+        //   ReactDOM.render(<App />, document.getElementById("root"));
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

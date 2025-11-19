@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <!-- Підключаємо React -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <!-- Підключаємо ReactDOM -->
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+  ></script>
+  <!-- Babel для підтримки JSX -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    function GetTest() {
+      const [a, setA] = React.useState(100);
+
+      function increaseNum() {
+        setA((prevA) => prevA + 1);
+        setA((prevA) => prevA + 1);
+        setA((prevA) => prevA + 1);
+        console.log(a);
+      }
+      return (
+        <div>
+          <div>a={a}</div>
+          <button onClick={increaseNum}>Increase</button>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <React.Fragment>
+          <GetTest />
+        </React.Fragment>
+      );
+    }
+
+    window.onload = function () {
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    };
+  </script>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

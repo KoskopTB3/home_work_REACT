@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React JSX UserCard</title>
+    <!-- Підключаємо React -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <!-- Підключаємо ReactDOM -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!-- Babel для підтримки JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // Функціональний компонент UserCard з JSX
+
+      function UserCard({ name, age, position, salary }) {
+        return (
+          <div
+            style={{
+              border: "1px solid #000",
+              padding: "10px",
+              margin: "10px",
+            }}
+          >
+            <h2>{name}</h2>
+            <p>Вік: {age}</p>
+            <p>Посада: {position}</p>
+            <h3> {`Гроші:${salary}`}</h3>
+          </div>
+        );
+      }
+
+      // Головний компонент App
+      function App() {
+        return (
+          <div>
+            <UserCard name="Андрій" age={30} position="Інженер" salary={123333} />
+            <UserCard name="Марія" age={25} position="Дизайнер" salary={77777777} />
+          </div>
+        );
+      }
+
+      // Рендеримо компонент App у DOM
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
