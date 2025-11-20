@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Задача №4</title>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      function BankAccount({ euroExchangeRate, usdExchangeRate }) {
+        const [amountOnTheAccount, setAmountOnTheAccount] = React.useState(0); // баланс
+        const [interestForMaintenance, setInterestForMaintenance] = React.useState(0); // комісія
+        const [amountOfMoneyReplenishment, setAmountOfMoneyReplenishment] =
+          React.useState(0); //гроші які будуть зараховані
+        const [withdrawalAmount, setWithdrawalAmount] = React.useState(0); //зняття коштів
+        const [colorTextAmount, setColorTextAmount] = React.useState("black");
+        //   const [colorTextUsd, setColorTextUsd] = React.useState("red");   // можна з useEffect
+        //   const [colorTextEuro, setColorTextEuro] = React.useState("red"); // можна з useEffect
+
+        //сума баланса в доларах
+        const sumInUSD = amountOnTheAccount / usdExchangeRate;
+
+        //сума баланса в євро
+        const sumInEURO = amountOnTheAccount / euroExchangeRate;
+
+        //додавання грошей на баланс
+        function creditingMoney() {
+          if (amountOfMoneyReplenishment < 0) {
+            setAmountOfMoneyReplenishment(0);
+            return;
+          }
+          setAmountOnTheAccount((prevSum) => prevSum + amountOfMoneyReplenishment);
+          setAmountOfMoneyReplenishment(0);
+          setColorTextAmount("green");
+        }
+
+        //-----------------USE_EFFECT---------------
+        //   React.useEffect(() => {
+        //     if (sumInUSD > 100) setColorTextUsd("green");
+        //     else setColorTextUsd("red");
+
+        //     if (sumInEURO > 100) setColorTextEuro("green");
+        //     else setColorTextEuro("red");
+        //   }, [amountOnTheAccount]);
+        //===========================================
+
+        //розрахунок комісії
+        function setWithdrawalAndInterestForMaintenance(e) {
+          const value = Number(e.target.value);
+          setWithdrawalAmount(value);
+          setInterestForMaintenance(value * 0.03);
+        }
+
+        //зняття грошей з балансу
+        function withdrawal() {
+          if (
+            amountOnTheAccount >= withdrawalAmount + interestForMaintenance &&
+            withdrawalAmount >= 0
+          ) {
+            setAmountOnTheAccount(
+              (prevAmount) => prevAmount - withdrawalAmount - interestForMaintenance
+            );
+            setWithdrawalAmount(0);
+            setColorTextAmount("red");
+          } else {
+            alert("Не достатньо коштів на рахунку");
+            setWithdrawalAmount(0);
+            setInterestForMaintenance(0);
+          }
+        }
+
+        return (
+          <div>
+            <div
+              style={{ color: colorTextAmount }}
+            >{`Сума на рахунку ${amountOnTheAccount} грн.`}</div>
+            <div>
+              <label>
+                Зарахувати на рахунок
+                <input
+                  type="number"
+                  value={amountOfMoneyReplenishment}
+                  onInput={(e) => setAmountOfMoneyReplenishment(Number(e.target.value))}
+                />
+              </label>
+              <button onClick={creditingMoney}>Зарахувати</button>
+            </div>
+            <div>
+              <label>
+                Зняти кошти
+                <input
+                  type="number"
+                  value={withdrawalAmount}
+                  onChange={setWithdrawalAndInterestForMaintenance}
+                />
+              </label>
+              <button onClick={withdrawal}>Зняти</button>
+              <div>Відсотки за обслуговування {interestForMaintenance.toFixed(2)}</div>
+            </div>
+            {/* <div style={{ color: colorTextEuro }}>*/}
+            <div style={{ color: sumInEURO > 100 ? "green" : "red" }}>
+              Cума в євро = {sumInEURO.toFixed(2)}
+            </div>
+
+            {/* <div style={{ color: colorTextUsd }}>*/}
+            <div style={{ color: sumInUSD > 100 ? "green" : "red" }}>
+              Cума в доларах = {sumInUSD.toFixed(2)}
+            </div>
+          </div>
+        );
+      }
+
+      function App() {
+        const data = {
+          euroExchangeRate: 49,
+          usdExchangeRate: 42,
+        };
+        return (
+          <div>
+            <BankAccount {...data} />
+          </div>
+        );
+      }
+
+      window.onload = function () {
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
