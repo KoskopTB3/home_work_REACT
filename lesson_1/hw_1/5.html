@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Задача №1</title>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      function SignInForm({ signInData }) {
+        const [login, setLogin] = React.useState("");
+        const [password, setPassword] = React.useState("");
+
+        function handler(e) {
+          if (e.target.tagName === "INPUT" && e.target.name === "login")
+            setLogin(e.target.value);
+          else setPassword(e.target.value);
+        }
+
+        function chekData() {
+          const findUser = signInData.find(
+            (userData) =>
+              userData.login.toLowerCase() == login.toLowerCase() &&
+              userData.password === password
+          );
+          console.log(findUser);
+          if (findUser) alert("Виконується вхід");
+          else alert("Не вірний логін або пароль");
+        }
+
+        return (
+          <React.Fragment>
+            <div>
+              <label>
+                login
+                <input type="text" value={login} name="login" onInput={handler} />
+              </label>
+            </div>
+            <div>
+              <label>
+                Password
+                <input type="text" value={password} name="password" onInput={handler} />
+              </label>
+            </div>
+            <div>
+              <button onClick={chekData}>Go</button>
+            </div>
+          </React.Fragment>
+        );
+      }
+      function App() {
+        const signInData = [
+          {
+            login: "123456",
+            password: "123456",
+          },
+          {
+            login: "Aaaaaaa",
+            password: "aaaA",
+          },
+          {
+            login: "BbBbbb",
+            password: "123B",
+          },
+          {
+            login: "qwerty",
+            password: "qwerty",
+          },
+        ];
+        return (
+          <div>
+            <SignInForm signInData={signInData} />
+          </div>
+        );
+      }
+
+      window.onload = function () {
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
