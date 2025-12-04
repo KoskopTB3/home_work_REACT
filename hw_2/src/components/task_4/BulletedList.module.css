@@ -1,0 +1,17 @@
+.taskContainer {
+  padding: 24px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(2, 6, 23, 0.12);
+  max-width: 350px;
+  margin: 32px auto;
+  position: relative;
+  overflow: visible;
+  background-color: #fff;
+}
+
+
+.color{
+	color: black;
+}

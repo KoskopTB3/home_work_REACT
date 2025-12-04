@@ -1,0 +1,110 @@
+:root {
+  --text: #183780;
+  --muted: #6b7280;
+}
+
+.containerItem {
+  padding: 22px;
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.08);
+  text-align: center;
+  max-width: 350px;
+  margin: 22px auto;
+  position: relative;
+  color: var(--text);
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.titleH2 {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: rgba(44, 57, 97, 0.9);
+  color: #fff;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+
+.select {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  margin: 14px 0;
+  border-radius: 8px;
+  border: 1px solid #e6e9ee;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text);
+}
+
+.businesClass {
+  background-image: linear-gradient(rgba(124, 44, 189, 0.18), rgba(0, 0, 0, 0.18)),
+    url("../../assets/img/task_2_img/business.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.economClass {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0.18)
+    ),
+    url("../../assets/img/task_2_img/econom.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.options {
+  margin-top: 18px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.optionsTitle {
+  margin: 0 0 6px 0;
+  width: 100%;
+  color: var(--text);
+}
+
+.optionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #ffffff; /* white background for each option */
+  border: 1px solid #eef2ff;
+  border-radius: 8px;
+}
+
+.optionLabel input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+.snack {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 10px;
+  background: #ffffff; /* white background for snack/radio area */
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #eef2ff;
+}
+
+.radioLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.radioLabel input[type="radio"] {
+  width: 16px;
+  height: 16px;
+}
