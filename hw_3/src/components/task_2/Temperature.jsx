@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./temperature.module.css";
+import styles from "./Temperature.module.css";
 
 function Temperature() {
   const [temperature, setTemperature] = useState("");
@@ -58,3 +58,4 @@ export default Temperature;
 // ●	від 11 до 22 – зелений
 // ●	вище 22 – червоний
 // Реалізувати з класами і стилями.
+
