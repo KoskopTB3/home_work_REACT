@@ -1,0 +1,15 @@
+.assigmentSectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.assigmentCardContainer {
+  width: 350px;
+}
+
+.assigmentItemContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
