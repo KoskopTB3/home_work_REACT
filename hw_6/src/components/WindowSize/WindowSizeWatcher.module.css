@@ -1,0 +1,98 @@
+:root {
+  --accent: #60a5fa;
+  --muted: #94a3b8;
+  --success: #10b981;
+}
+
+.container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(2, 6, 23, 0.5);
+  color: #e6eef8;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+}
+
+.title {
+  margin: 0 0 16px 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+  text-align: center;
+}
+
+.contentBlock {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.sizeDisplay {
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    rgba(96, 165, 250, 0.1),
+    rgba(96, 165, 250, 0.05)
+  );
+  border: 1px solid rgba(96, 165, 250, 0.15);
+  text-align: center;
+  font-weight: 700;
+  color: #dbeafe;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.deviceBlock {
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.1),
+    rgba(16, 185, 129, 0.05)
+  );
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  text-align: center;
+  font-weight: 600;
+  color: #a7f3d0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.icon {
+  font-size: 24px;
+}
+
+.infoText {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+@media (max-width: 520px) {
+  .container {
+    margin: 16px;
+    padding: 18px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .sizeDisplay,
+  .deviceBlock {
+    font-size: 14px;
+  }
+}

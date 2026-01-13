@@ -1,0 +1,156 @@
+:root {
+  --accent: #60a5fa;
+  --muted: #94a3b8;
+  --success: #10b981;
+}
+
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(2, 6, 23, 0.5);
+  color: #e6eef8;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+}
+
+.title {
+  margin: 0 0 16px 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 2px solid rgba(96, 165, 250, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  color: inherit;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+  background: rgba(96, 165, 250, 0.05);
+}
+
+.searchInput::placeholder {
+  color: var(--muted);
+}
+
+.statusBlock {
+  margin-top: 16px;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.loading {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.loadingDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 1.5s infinite;
+}
+
+.error {
+  color: #f87171;
+  font-weight: 600;
+}
+
+.resultsContainer {
+  margin-top: 14px;
+}
+
+.resultsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.resultItem {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    rgba(16, 185, 129, 0.08),
+    rgba(16, 185, 129, 0.04)
+  );
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  color: #a7f3d0;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.resultItem:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(16, 185, 129, 0.12),
+    rgba(16, 185, 129, 0.08)
+  );
+  border-color: rgba(16, 185, 129, 0.3);
+  transform: translateX(4px);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 20px 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.resultCount {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    margin: 16px;
+    padding: 18px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .searchInput {
+    font-size: 14px;
+  }
+}
