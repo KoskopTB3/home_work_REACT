@@ -1,0 +1,36 @@
+.productsList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ровно 3 колонки */
+  gap: 20px;
+  width: 100%;
+}
+
+.productItem {
+  border: 5px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  background: #a7a6a6;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* соотношение сторон (4:3) */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.imageWrapper img{
+	position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* товар выглядит аккуратно */
+}

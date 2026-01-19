@@ -1,0 +1,41 @@
+.navbar {
+ position: fixed;       /* фиксируем в окне */
+  top: 0;                /* сверху */
+  left: 0;               /* слева */
+  width: 100%;           /* на всю ширину окна */
+  background-color: #333; /* фон */
+  padding: 0.5rem 1rem;
+  z-index: 1000;         /* поверх всего */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* легкая тень */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ff9800;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid #ff9800;
+}
+
+/* .active {
+  color: blue;
+} */
