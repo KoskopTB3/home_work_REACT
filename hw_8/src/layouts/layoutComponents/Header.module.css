@@ -1,0 +1,12 @@
+.container {
+  color: white;
+  display: flex;
+  gap: 20px;
+}
+.link {
+  color: white;
+  margin: 20px;
+}
+.active {
+  color: orange;
+}
